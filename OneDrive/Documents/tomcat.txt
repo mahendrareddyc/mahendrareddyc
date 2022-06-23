@@ -1,0 +1,56 @@
+Tomcat install and setup
+
+    3  yum update
+    5  sudo yum install java-1.8.0-openjdk-devel
+    7  java -version
+    8  wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.13/bin/apache-tomcat-10.0.13.tar.gz
+    9  yum install wget -y
+   10  wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.13/bin/apache-tomcat-10.0.13.tar.gz
+   11  ll
+   12  mv apache-tomcat-10.0.13.tar.gz /opt (move to a file one location to another location)
+   13  ll
+   14  cd /opt/
+   15  ll
+   16  tar -xvzf apache-tomcat-10.0.13.tar.gz(extrat tar file)
+   17  ll
+   18  mv apache-tomcat-10.0.13 tomcat (change name )
+   19  ll
+   20  cd tomcat/
+   21  ll
+   22  cd bin/
+   23  ll
+   24  sh startup.sh
+   25  cd ..
+   26  ll
+   27  cd tomcat/
+   28  ll
+   29  cd webapps/
+   30  ll
+   31  cd manager/
+   32  ll
+   33  cd META-INF/
+   34  ll
+   35  vi context.xml(cd /tomcat/webapps/manager/META_INF then next i can see context.xml file then change the file )
+<Context antiResourceLocking="false" privileged="true" >
+    <!--
+    <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
+    -->
+</Context>
+
+
+   36  cd ..
+   37  ll
+   38  cd conf/
+   39  ll
+   40  vi tomcat-users.xml(cd /opt/tomcat/conf then i can see hera tomcat-user.xml then add user)
+<role rolename="manager-gui"/>
+<user username="mahendra" password="mahendra123" roles="manager-gui"/>
+
+   41  cd ..
+   42  ll
+   43  cd bin/
+   44  ll
+   45  sh shutdown.sh (stop tomcat)
+   46  sh startup.sh(start tomcat)
+
